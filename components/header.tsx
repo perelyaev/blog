@@ -1,5 +1,5 @@
 import { NavMenu } from './nav-menu'
-import { Button } from './ui'
+import { SignIn } from './sign-in'
 
 export function Header() {
   return (
@@ -8,7 +8,7 @@ export function Header() {
         <div className='w-full flex items-center justify-between'>
           <a className="font-semibold tracking-widest" href="/">Блог</a>
           <NavMenu />
-          <Button variant={'outline'}>Войти</Button>
+          <SignIn />
         </div>
       </div>
     </header>
