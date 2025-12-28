@@ -11,7 +11,13 @@ export const auth = betterAuth({
         provider: "postgresql",
     }),
     plugins: [
-        emailOTP({ 
+        emailOTP({
+            otpLength: 6,
+            expiresIn: 300,
+            sendVerificationOnSignUp: true,
+            overrideDefaultEmailVerification: true, 
+            allowedAttempts: 3,
+            storeOTP: 'hashed',
             async sendVerificationOTP({ email, otp, type }) { 
                 if (type === "sign-in") {
                     const html = await render(VerificationOTP(otp))

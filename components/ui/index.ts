@@ -27,3 +27,10 @@ export {
 } from '@/components/ui/dialog'
 export { Label } from '@/components/ui/label'
 export { Input } from '@/components/ui/input'
+export { 
+  InputOTP, 
+  InputOTPGroup, 
+  InputOTPSlot, 
+  InputOTPSeparator 
+} from '@/components/ui/input-otp'
+export { Toaster } from '@/components/ui/sonner'
