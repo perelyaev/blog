@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { Header } from '@/components/header'
+import { Toaster } from '@/components/ui'
 
 export const metadata: Metadata = {
   title: "Блог",
@@ -24,6 +25,7 @@ export default function RootLayout({
           </div>
         </main>
         <footer className='bg-foreground text-background relative overflow-hidden'></footer>
+        <Toaster />
       </body>
     </html>
   );

@@ -10,19 +10,33 @@ export function SignIn() {
   const [otp, setOtp] = useState('')
 
   async function handleSending() {
-    await authClient.emailOtp.sendVerificationOtp({
+    const { data, error } = await authClient.emailOtp.sendVerificationOtp({
       email: email,
       type: "sign-in",
     })
-    toast.success("Код подтверждения отправлен на электронную почту")
+
+    if (error) {
+      toast.error(error.message)
+    }
+
+    if (data?.success) {
+      toast.success("Код подтверждения отправлен на электронную почту")
+    }
   }
 
   async function handleVerification() {
-    await authClient.signIn.emailOtp({
-      email: email,
-      otp: otp
-    });
-    toast.success("Вы успешно авторизованы")
+    const { data, error } = await authClient.signIn.emailOtp({
+    email: email,
+    otp: otp
+});
+
+    if (error) {
+      toast.error(error.message)
+    }
+
+    if (data) {
+      toast.success("Вы успешно авторизованы")
+    }
   }
 
   return (
@@ -44,7 +58,7 @@ export function SignIn() {
         <div className="grid gap-4">
           <div className="grid gap-3">
             <Label>Код подтверждения</Label>
-            <InputOTP maxLength={6} >
+            <InputOTP maxLength={6} value={otp} onChange={(value) => setOtp(value)}>
               <InputOTPGroup>
                 <InputOTPSlot index={0} className='w-17' />
                 <InputOTPSlot index={1} className='w-17' />

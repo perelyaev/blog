@@ -17,7 +17,7 @@ export const auth = betterAuth({
             sendVerificationOnSignUp: true,
             overrideDefaultEmailVerification: true, 
             allowedAttempts: 3,
-            storeOTP: 'hashed',
+            // storeOTP: 'hashed',
             async sendVerificationOTP({ email, otp, type }) { 
                 if (type === "sign-in") {
                     const html = await render(VerificationOTP(otp))
