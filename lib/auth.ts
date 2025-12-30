@@ -10,6 +10,11 @@ export const auth = betterAuth({
     database: prismaAdapter(prisma, {
         provider: "postgresql",
     }),
+    session: {
+        expiresIn: 60 * 60 * 24 * 7, // 7 days
+        updateAge: 60 * 60 * 24, // 1 day (every 1 day the session expiration is updated)
+        freshAge: 60 * 5 // 5 minutes (the session is fresh if created within the last 5 minutes)
+    },
     plugins: [
         emailOTP({
             otpLength: 6,
@@ -17,7 +22,7 @@ export const auth = betterAuth({
             sendVerificationOnSignUp: true,
             overrideDefaultEmailVerification: true, 
             allowedAttempts: 3,
-            // storeOTP: 'hashed',
+            storeOTP: 'hashed',
             async sendVerificationOTP({ email, otp, type }) { 
                 if (type === "sign-in") {
                     const html = await render(VerificationOTP(otp))

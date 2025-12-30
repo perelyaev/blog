@@ -34,3 +34,21 @@ export {
   InputOTPSeparator 
 } from '@/components/ui/input-otp'
 export { Toaster } from '@/components/ui/sonner'
+export { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar'
+export {
+  DropdownMenu,
+  DropdownMenuPortal,
+  DropdownMenuTrigger,
+  DropdownMenuContent,
+  DropdownMenuGroup,
+  DropdownMenuLabel,
+  DropdownMenuItem,
+  DropdownMenuCheckboxItem,
+  DropdownMenuRadioGroup,
+  DropdownMenuRadioItem,
+  DropdownMenuSeparator,
+  DropdownMenuShortcut,
+  DropdownMenuSub,
+  DropdownMenuSubTrigger,
+  DropdownMenuSubContent,
+} from '@/components/ui/dropdown-menu'

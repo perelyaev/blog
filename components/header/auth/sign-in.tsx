@@ -2,8 +2,8 @@
 
 import { authClient } from '@/lib/auth-client'
 import { useState } from 'react'
-import { Button, Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogTrigger, Input, InputOTP, InputOTPGroup, InputOTPSlot, Label } from './ui'
 import { toast } from "sonner"
+import { Button, Dialog, DialogContent, DialogFooter, DialogHeader, DialogTitle, DialogTrigger, Input, InputOTP, InputOTPGroup, InputOTPSlot, Label } from '../../ui'
 
 export function SignIn() {
   const [email, setEmail] = useState('')
@@ -26,9 +26,9 @@ export function SignIn() {
 
   async function handleVerification() {
     const { data, error } = await authClient.signIn.emailOtp({
-    email: email,
-    otp: otp
-});
+      email: email,
+      otp: otp
+    })
 
     if (error) {
       toast.error(error.message)

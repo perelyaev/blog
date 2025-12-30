@@ -1,17 +1,17 @@
-import type { Metadata } from "next";
-import "./globals.css";
 import { Header } from '@/components/header'
 import { Toaster } from '@/components/ui'
+import type { Metadata } from "next"
+import "./globals.css"
 
 export const metadata: Metadata = {
   title: "Блог",
   description: "Блог о программировании",
-};
+}
 
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode;
+  children: React.ReactNode
 }>) {
   return (
     <html lang="ru">
@@ -28,5 +28,5 @@ export default function RootLayout({
         <Toaster />
       </body>
     </html>
-  );
+  )
 }
