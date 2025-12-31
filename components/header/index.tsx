@@ -3,6 +3,7 @@
 import { authClient } from '@/lib/auth-client'
 import { Auth } from './auth'
 import { NavMenu } from './nav-menu'
+import { Button, Dialog, DialogTrigger } from '../ui'
 
 export function Header() {
   const {
@@ -18,7 +19,7 @@ export function Header() {
         <div className='w-full flex items-center justify-between'>
           <a className="font-semibold tracking-widest" href="/">Блог</a>
           <NavMenu />
-          <Auth></Auth>
+          <Auth />
         </div>
       </div>
     </header>
